@@ -64,9 +64,9 @@ body {
 }
 
 .photo {
-    background-image: url('slike/tattoo_artists.jpg');
+    background-image: url('slike/tat.jpeg');
+    background-size: cover;
 }
-
 /* Main Content */
 .intro {
     padding-top: 215px;
@@ -87,7 +87,7 @@ body {
     color: #000000; 
     background-color: rgb(119, 119, 119);
     margin: 20px; 
-    margin-bottom: 5px; 
+    margin-bottom:1px; 
     gap: 20px;
     padding: 30px;
     line-height: 1.5;
@@ -306,7 +306,7 @@ footer {
 @media (max-width: 738px) {
     .navbar {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
     }
     .carousel-container {
         flex-direction: column;
