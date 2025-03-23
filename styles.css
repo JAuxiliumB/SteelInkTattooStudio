@@ -22,7 +22,7 @@ body {
     z-index: 10;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    text-align: left;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 .navbar h1 {
