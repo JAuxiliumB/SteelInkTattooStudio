@@ -17,6 +17,7 @@
     <!-- Navigacija -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
+                <img src="slike/tattooLogotip.png" alt="Logo" class="logotip">
             <h1>Steel Ink Tattoo Studio</h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,10 +49,8 @@
         <h1>Steel Ink Tattoo Studio</h1>
     </section>
 
-    <!-- Neka lepa misel -->
-    <section class="studio">
-        <h2>Tetovaža je platno duše, kjer vsak zamah igle riše zgodbo, ki ostane za vedno vtkana v kožo.</h2>
-    </section>
+    <div class="studio" id="text"></div>
+
 </div>
     <!-- O umetniku -->
     <section id="artist" class="artist-section">
@@ -60,58 +59,54 @@
             <div class="artist-photo">
                 <img src="slike/aiTat.jpg" alt="Matej Vidovič" class="artist-img">
             </div>
-            <div class="artist-bio">
-                <p>Matej Vidovič je mojster tetoviranja z več kot 10-letnimi izkušnjami.
-                    Znano je, da s svojimi detajli in inovativnimi dizajni ustvarja edinstvene umetnine. 
-                    Njegova strast do umetnosti in tetoviranja se odraža v vsakem njegovem delu.</p>
-            </div>
+            <div class="artist-bio" id="bio"></div>
         </div>
     </section>
 
 
-<section id="FAQ" class="FAQ-section">
-    <h2>Pogosta vprašanja</h2>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Ali tetovirate mladoletne osebe? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">Žal ne. V primeru, da je oseba stara 17 in želi tatu, je to mogoče le v spremstvu enega izmed staršev oz. skrbnikov & ob podpisu ustreznega formularja.</div>
-    </div>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Ali imam lahko spremstvo? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">Seveda! Naša čakalnica je dovolj velika & udobna, da se lahko vaša spremljevalna oseba udobno namesti in vas počaka.</div>
-    </div>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Ali tetovirate nosečnice in doječe matere? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">Žal ne.</div>
-    </div>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Ali delate barvne tattooje? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">Načeloma ne, vendar so izjeme kjer (najraje) uporabljamo eno barvo ali dve kot nek akcent. Priporočamo, da se za podrobnejšo obrazložitev glede na vaš željen dizajn obrnete na vašega tetoverja.</div>
-    </div>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Kakšna je cena tetovaže? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">Ceno je v naprej težko določiti, saj je odvisna od velikosti & kompleksnosti dizajna. Za okvirno ceno lahko povprašate izbranega tetoverja.</div>
-    </div>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Si lahko s seboj prinesem kakšno pijačo ali prigrizek? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">Seveda! To je sploh dobrodošlo, če si pridete tetovirat večji tatu, zaradi katerega boste preživeli v studiu več časa. Imamo pa super kavico & čaj tudi v studiu!</div>
-    </div>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Ali prekrivate/popravljate tetovaže drugih tetoverjev? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">V večini primerov žal ne. Izjeme se naredijo, če je stara tetovaža zelo majhna, bleda ali vsaj delno odstranjena z laserjem.</div>
-    </div>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Koliko časa traja tetoviranje? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">Čas tetoviranja je težko določiti, saj se vsaka koža drugače obnaša med tetoviranjem, odvisno je tudi od velikosti & kompleksnosti samega dizajna.</div>
-    </div>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Kako se naj pripravim na tetoviranje? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">Priporočamo, da: <br>• se naspite <br>• ste dovolj hidrirani (skrb za vnos vode par dni pred tetoviranjem) <br>• teden ali dva prej negujete predel kože, ki bo tetoviran, z ustrezno vlažilno kremo. <br>V primeru akutnih bolezenskih stanj se raje opravičite & nam to sporočite – skupaj bomo našli nov termin.</div>
-    </div>
-    <div class="FAQ-item">
-        <div class="FAQ-question">Ali ponujate darilne bone? <span class="arrow">▼</span></div>
-        <div class="FAQ-answer">Seveda, vrednost bona določite sami. Minimalna vrednost pa je 50€.</div>
-    </div>
-</section>
+    <section id="FAQ" class="FAQ-section">
+        <h2>Pogosta vprašanja</h2>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Ali tetovirate mladoletne osebe? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">Žal ne. V primeru, da je oseba stara 17 in želi tatu, je to mogoče le v spremstvu enega izmed staršev oz. skrbnikov & ob podpisu ustreznega formularja.</div>
+        </div>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Ali imam lahko spremstvo? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">Seveda! Naša čakalnica je dovolj velika & udobna, da se lahko vaša spremljevalna oseba udobno namesti in vas počaka.</div>
+        </div>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Ali tetovirate nosečnice in doječe matere? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">Žal ne.</div>
+        </div>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Ali delate barvne tattooje? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">Načeloma ne, vendar so izjeme kjer (najraje) uporabljamo eno barvo ali dve kot nek akcent. Priporočamo, da se za podrobnejšo obrazložitev glede na vaš željen dizajn obrnete na vašega tetoverja.</div>
+        </div>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Kakšna je cena tetovaže? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">Ceno je v naprej težko določiti, saj je odvisna od velikosti & kompleksnosti dizajna. Za okvirno ceno lahko povprašate izbranega tetoverja.</div>
+        </div>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Si lahko s seboj prinesem kakšno pijačo ali prigrizek? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">Seveda! To je sploh dobrodošlo, če si pridete tetovirat večji tatu, zaradi katerega boste preživeli v studiu več časa. Imamo pa super kavico & čaj tudi v studiu!</div>
+        </div>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Ali prekrivate/popravljate tetovaže drugih tetoverjev? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">V večini primerov žal ne. Izjeme se naredijo, če je stara tetovaža zelo majhna, bleda ali vsaj delno odstranjena z laserjem.</div>
+        </div>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Koliko časa traja tetoviranje? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">Čas tetoviranja je težko določiti, saj se vsaka koža drugače obnaša med tetoviranjem, odvisno je tudi od velikosti & kompleksnosti samega dizajna.</div>
+        </div>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Kako se naj pripravim na tetoviranje? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">Priporočamo, da: <br>• se naspite <br>• ste dovolj hidrirani (skrb za vnos vode par dni pred tetoviranjem) <br>• teden ali dva prej negujete predel kože, ki bo tetoviran, z ustrezno vlažilno kremo. <br>V primeru akutnih bolezenskih stanj se raje opravičite & nam to sporočite – skupaj bomo našli nov termin.</div>
+        </div>
+        <div class="FAQ-item">
+            <div class="FAQ-question">Ali ponujate darilne bone? <span class="arrow">▼</span></div>
+            <div class="FAQ-answer">Seveda, vrednost bona določite sami. Minimalna vrednost pa je 50€.</div>
+        </div>
+    </section>
 
 <!-- Galerija -->
 <section id="gallery" class="gallery-section">
