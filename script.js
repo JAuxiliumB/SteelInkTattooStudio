@@ -25,7 +25,7 @@ const items = document.querySelectorAll('.FAQ-item');
                 faqSection.classList.add("show");
                 FAQobserver.unobserve(faqSection);
             }
-        }, { threshold: 0.9 });
+        }, { threshold: 0.3 });
     
         FAQobserver.observe(faqSection);
     });
@@ -42,7 +42,8 @@ images.forEach((image) => {
 
 const totalWidth = carouselContainer.scrollWidth;
 
-carouselContainer.style.animationDuration = `${totalWidth / 100}px`; 
+const scrollSpeed = 3;
+carouselContainer.style.animationDuration = `${images.length * scrollSpeed}s`;
 
 //Povečana slika
 const modal = document.createElement('div');
@@ -88,7 +89,7 @@ const introDiv = document.getElementById("text");
             typeEffect();
             observerIntro.unobserve(introDiv);
         }
-        }, { threshold: 0.9 });
+        }, { threshold: 0.3 });
     
         observerIntro.observe(introDiv);
 
