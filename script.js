@@ -17,6 +17,19 @@ const items = document.querySelectorAll('.FAQ-item');
             item.classList.toggle('active');
         });
     });
+    document.addEventListener("DOMContentLoaded", () => {
+        const faqSection = document.querySelector(".FAQ-section");
+    
+        const FAQobserver = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                faqSection.classList.add("show");
+                FAQobserver.unobserve(faqSection);
+            }
+        }, { threshold: 0.2 });
+    
+        FAQobserver.observe(faqSection);
+    });
+    
 
 // Galerija
 const carouselContainer = document.querySelector('.carousel-container');
@@ -55,3 +68,63 @@ modal.addEventListener('click', (e) => {
         modal.classList.remove('active');
     }
 });
+
+//Lepa misel napis
+const textintro ="Tetovaža je platno duše, kjer vsak zamah igle riše zgodbo, ki ostane za vedno vtkana v kožo.";
+const introDiv = document.getElementById("text");
+
+    function typeEffect() {
+        textintro.split("").forEach((char, i) => {
+            let span = document.createElement("span");
+                span.textContent = char;
+                span.classList.add("fade");
+                span.style.animationDelay = `${i * 0.06}s`;
+                introDiv.appendChild(span);
+            });
+    }
+
+    const observerIntro = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+            typeEffect();
+            observerIntro.unobserve(introDiv);
+        }
+        }, { threshold: 1.0 });
+    
+        observerIntro.observe(introDiv);
+
+//artist-photo rollIn
+const artistPhoto = document.querySelector(".artist-photo");
+
+const observerArtistPhoto = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+        artistPhoto.style.animation = "rollIn 1.2s ease-out forwards";
+    }
+}, { threshold: 0.5 });
+
+observerArtistPhoto.observe(artistPhoto);
+
+//artist-bio-napis
+const textBio = "Matej Vidovič je mojster tetoviranja z več kot 10-letnimi izkušnjami." +
+" Znano je, da s svojimi detajli in inovativnimi dizajni ustvarja edinstvene umetnine." +
+" Njegova strast do umetnosti in tetoviranja se odraža v vsakem njegovem delu.";
+
+const bioDiv = document.getElementById("bio");
+
+function writeText() {
+    textBio.split("").forEach((char, i) => {
+    let span = document.createElement("span");
+        span.textContent = char;
+        span.classList.add("fade");
+        span.style.animationDelay = `${i * 0.01}s`;
+        bioDiv.appendChild(span);
+    });
+}
+
+const observerBio = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+        writeText();
+        observerBio.unobserve(bioDiv);
+    }
+    }, { threshold: 1.0 });
+
+    observerBio.observe(bioDiv);
