@@ -25,7 +25,7 @@ const items = document.querySelectorAll('.FAQ-item');
                 faqSection.classList.add("show");
                 FAQobserver.unobserve(faqSection);
             }
-        }, { threshold: 0.2 });
+        }, { threshold: 0.9 });
     
         FAQobserver.observe(faqSection);
     });
@@ -88,7 +88,7 @@ const introDiv = document.getElementById("text");
             typeEffect();
             observerIntro.unobserve(introDiv);
         }
-        }, { threshold: 1.0 });
+        }, { threshold: 0.9 });
     
         observerIntro.observe(introDiv);
 
@@ -99,7 +99,7 @@ const observerArtistPhoto = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
         artistPhoto.style.animation = "rollIn 1.2s ease-out forwards";
     }
-}, { threshold: 0.5 });
+}, { threshold: 0.9 });
 
 observerArtistPhoto.observe(artistPhoto);
 
@@ -125,6 +125,6 @@ const observerBio = new IntersectionObserver(entries => {
         writeText();
         observerBio.unobserve(bioDiv);
     }
-    }, { threshold: 1.0 });
+    }, { threshold: 0.9 });
 
     observerBio.observe(bioDiv);
