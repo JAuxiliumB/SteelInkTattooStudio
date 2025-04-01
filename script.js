@@ -99,7 +99,7 @@ const observerArtistPhoto = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
         artistPhoto.style.animation = "rollIn 1.2s ease-out forwards";
     }
-}, { threshold: 0.9 });
+}, { threshold: 0.3 });
 
 observerArtistPhoto.observe(artistPhoto);
 
@@ -125,6 +125,6 @@ const observerBio = new IntersectionObserver(entries => {
         writeText();
         observerBio.unobserve(bioDiv);
     }
-    }, { threshold: 0.9 });
+    }, { threshold: 0.3 });
 
     observerBio.observe(bioDiv);
