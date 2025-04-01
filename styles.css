@@ -281,16 +281,6 @@ body {
     margin: 0 auto;
     padding: 35px;
     
-    /* Start hidden */
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 2s ease-out, transform 3s ease-out;
-}
-
-/* When visible, fully appear */
-.FAQ-section.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .FAQ-item {
