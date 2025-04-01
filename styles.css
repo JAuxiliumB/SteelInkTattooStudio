@@ -12,6 +12,17 @@ body {
     overflow-x: hidden;
     text-align: center;
 }
+@media (max-width: 768px) {
+    .carousel-container { /* Replace with actual class or ID of the gallery */
+        overflow: hidden;
+        white-space: nowrap; /* Prevents items from wrapping */
+    }
+
+    .carousel-img { /* Adjust if using different elements */
+        max-width: 100%; /* Ensures images scale properly */
+        height: auto;
+    }
+}
 
 /* Navbar Styles */
 .navbar {
