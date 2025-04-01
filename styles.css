@@ -209,6 +209,7 @@ body {
     animation: scroll-carousel 20s linear infinite;
     width: max-content;
     padding: 30px;
+    overflow: hidden;
 }
 
 .carousel-img {
