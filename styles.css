@@ -12,17 +12,6 @@ body {
     overflow-x: hidden;
     text-align: center;
 }
-@media (max-width: 768px) {
-    .carousel-container { /* Replace with actual class or ID of the gallery */
-        overflow: hidden;
-        white-space: nowrap; /* Prevents items from wrapping */
-    }
-
-    .carousel-img { /* Adjust if using different elements */
-        max-width: 100%; /* Ensures images scale properly */
-        height: auto;
-    }
-}
 
 /* Navbar Styles */
 .navbar {
@@ -198,8 +187,61 @@ body {
     padding-top: 15px;
     padding-bottom: 30px;
     background-color: #252523;
-    
 }
+.carousel-container {
+    perspective: 1000px;
+    overflow: hidden;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel {
+    position: relative;
+    width: 600px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-img {
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.7s ease, opacity 0.7s ease, z-index 0.7s ease;
+    cursor: pointer;
+    opacity: 0.3;
+    transform: scale(0.8);
+    filter: grayscale(100%);
+
+  }
+  
+  .carousel-img.active {
+    transform: translateX(0) scale(1.2);
+    z-index: 3;
+    opacity: 1;
+    filter: grayscale(0%);
+
+  }
+  
+  .carousel-img.left {
+    transform: translateX(-180px) rotateY(30deg) scale(1);
+    z-index: 2;
+    opacity: 0.6;
+    filter: grayscale(100%);
+
+  }
+  
+  .carousel-img.right {
+    transform: translateX(180px) rotateY(-30deg) scale(1);
+    z-index: 2;
+    opacity: 0.6;
+    filter: grayscale(100%);
+
+  }
 
 .gallery-section h1, .FAQ-section h2, .contact-section h2 {
     font-size: 30px;
@@ -211,82 +253,6 @@ body {
     padding-top: 20px;
 }
 
-/* Carousel container */
-.carousel-container {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: max-content;
-    gap: 70px;
-    animation: scroll-carousel 20s linear infinite;
-    width: max-content;
-    padding: 30px;
-    overflow: hidden;
-}
-
-.carousel-img {
-    width: 125px;
-    height: 125px;
-    object-fit: cover;
-    border-radius: 125px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    filter:grayscale(100%)
-}
-
-@keyframes scroll-carousel {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-.carousel-img:hover {
-    transform: scale(1.1);
-    filter: grayscale(0%);
-}
-
-/* Fullscreen Modal */
-.image-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.image-modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.image-modal img {
-    width: 350px;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 30px;
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-}
-
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    background: none;
-    border: none;
-
-} 
 
 .FAQ-section {
     max-width: auto;
@@ -394,8 +360,5 @@ footer {
     .navbar {
         flex-direction: column;
         text-align: left;
-    }
-    .carousel-container {
-        flex-direction: column;
     }
 }
