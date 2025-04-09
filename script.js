@@ -29,69 +29,78 @@ const items = document.querySelectorAll('.FAQ-item');
     
         FAQobserver.observe(faqSection);
     });
-    
 
-// Galerija
-const carouselContainer = document.querySelector('.carousel-container');
+//Galerija
 const images = document.querySelectorAll('.carousel-img');
+let currentIndex = 0;
+let interval;
 
-images.forEach((image) => {
-    const clone = image.cloneNode(true);
-    carouselContainer.appendChild(clone);
-});
+function updateCarousel() {
+  images.forEach((img, i) => {
+    img.classList.remove('active', 'left', 'right');
 
-const totalWidth = carouselContainer.scrollWidth;
-
-const scrollSpeed = 3;
-carouselContainer.style.animationDuration = `${images.length * scrollSpeed}s`;
-
-//Povečana slika
-const modal = document.createElement('div');
-modal.classList.add('image-modal');
-modal.innerHTML = `
-    <button class="close-btn">&times;</button>
-    <img src="" alt="Full Image">`;
-    
-document.body.appendChild(modal);
-
-const modalImage = modal.querySelector('img');
-const closeButton = modal.querySelector('.close-btn');
-
-document.querySelectorAll('.carousel-img').forEach(img => {
-    img.addEventListener('click', () => {
-        modalImage.src = img.src;
-        modal.classList.add('active');
-    });
-});
-
-modal.addEventListener('click', (e) => {
-    if (e.target === modal || e.target === closeButton) {
-        modal.classList.remove('active');
+    if (i === currentIndex) {
+      img.classList.add('active');
+    } else if (i === (currentIndex - 1 + images.length) % images.length) {
+      img.classList.add('left');
+    } else if (i === (currentIndex + 1) % images.length) {
+      img.classList.add('right');
     }
+  });
+}
+
+
+images.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    currentIndex = index;
+    updateCarousel();
+  });
 });
 
-//Lepa misel napis
-const textintro ="Tetovaža je platno duše, kjer vsak zamah igle riše zgodbo, ki ostane za vedno vtkana v kožo.";
+updateCarousel();
+
+ 
+//lepa misel
+const textintro = "Tetovaža je platno duše, kjer vsak zamah igle riše zgodbo, ki ostane za vedno vtkana v kožo.";
 const introDiv = document.getElementById("text");
 
-    function typeEffect() {
-        textintro.split("").forEach((char, i) => {
-            let span = document.createElement("span");
-                span.textContent = char;
-                span.classList.add("fade");
-                span.style.animationDelay = `${i * 0.06}s`;
-                introDiv.appendChild(span);
-            });
-    }
+let sentenceIndex = 0;
+const sentences = textintro.match(/[^.?!]+[.?!]/g); // razbije na stavke
 
-    const observerIntro = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-            typeEffect();
-            observerIntro.unobserve(introDiv);
-        }
-        }, { threshold: 0.3 });
-    
-        observerIntro.observe(introDiv);
+function typeSentenceWords(sentence, callback) {
+    introDiv.innerHTML = "";
+    const words = sentence.trim().split(" ");
+
+    words.forEach((word, i) => {
+        const span = document.createElement("span");
+        span.textContent = word + " ";
+        span.classList.add("fade");
+        span.style.animationDelay = `${i * 0.3}s`;
+        introDiv.appendChild(span);
+    });
+
+    setTimeout(() => {
+        if (callback) callback();
+    }, words.length * 300 + 500);
+}
+
+function startTyping() {
+    if (sentenceIndex >= sentences.length) return;
+
+    typeSentenceWords(sentences[sentenceIndex], () => {
+        sentenceIndex++;
+        setTimeout(startTyping, 1000);
+    });
+}
+
+const observerIntro = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+        startTyping();
+        observerIntro.unobserve(introDiv);
+    }
+}, { threshold: 0.3 });
+
+observerIntro.observe(introDiv);
 
 //artist-photo rollIn
 const artistPhoto = document.querySelector(".artist-photo");
@@ -104,7 +113,7 @@ const observerArtistPhoto = new IntersectionObserver(entries => {
 
 observerArtistPhoto.observe(artistPhoto);
 
-//artist-bio-napis
+// artist-bio-napis
 const textBio = "Matej Vidovič je mojster tetoviranja z več kot 10-letnimi izkušnjami." +
 " Znano je, da s svojimi detajli in inovativnimi dizajni ustvarja edinstvene umetnine." +
 " Njegova strast do umetnosti in tetoviranja se odraža v vsakem njegovem delu.";
@@ -112,11 +121,12 @@ const textBio = "Matej Vidovič je mojster tetoviranja z več kot 10-letnimi izk
 const bioDiv = document.getElementById("bio");
 
 function writeText() {
-    textBio.split("").forEach((char, i) => {
-    let span = document.createElement("span");
-        span.textContent = char;
+    const words = textBio.split(" ");
+    words.forEach((word, i) => {
+        const span = document.createElement("span");
+        span.textContent = word + " ";
         span.classList.add("fade");
-        span.style.animationDelay = `${i * 0.01}s`;
+        span.style.animationDelay = `${i * 0.2}s`;
         bioDiv.appendChild(span);
     });
 }
@@ -126,6 +136,6 @@ const observerBio = new IntersectionObserver(entries => {
         writeText();
         observerBio.unobserve(bioDiv);
     }
-    }, { threshold: 0.3 });
+}, { threshold: 0.3 });
 
-    observerBio.observe(bioDiv);
+observerBio.observe(bioDiv);
